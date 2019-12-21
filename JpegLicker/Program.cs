@@ -17,28 +17,16 @@ namespace JpegLicker
             //今は雑デバッグ向けに暫定対応
             if (args.Length != 2)
             {
-                Console.Write("入力ファイルパスを入力してね");
-                sourceImagePath = Console.ReadLine();
-                Console.Write("出力ファイルパスを入力してね");
-                destinationImagePath = Console.ReadLine();
+                Console.Write("ファイルパスを入力してね");
+                baseImagePath = Console.ReadLine();
             }
-            /*else
-            {
-                sourceImagePath = args[1];
-                destinationImagePath = args[2];
-            }*/
 
             //元ファイルを開いてDCT係数を引っこ抜く
             try
             {
-                using (System.IO.FileStream sourceImageStream = new System.IO.FileStream(sourceImagePath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
-                    using (System.IO.FileStream destinationImageStream = new System.IO.FileStream(destinationImagePath, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write))
+                using (System.IO.FileStream baseImageStream = new System.IO.FileStream(baseImagePath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
                 {
                     //todo: ここにJPEGのDCT係数を引っこ抜く処理を書く
-                    BitMiracle.LibJpeg.Classic.jpeg_decompress_struct sourceImageStruct = new BitMiracle.LibJpeg.Classic.jpeg_decompress_struct();
-                    sourceImageStruct.jpeg_stdio_src(sourceImageStream);
-                    sourceImageStruct.jpeg_read_header(true);
-
                 }
             }
             catch(ArgumentException ex)
