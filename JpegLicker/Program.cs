@@ -11,8 +11,8 @@ namespace JpegLicker
         static void Main(string[] args)
         {
             //Console.WriteLine("args[1]:%s", args[1]);
-            string sourceImagePath;
-            string destinationImagePath;
+            string sourceImagePath = null;
+            string destinationImagePath = null ;
             //引数の数がおかしい時の処理h
             //今は雑デバッグ向けに暫定対応
             if (args.Length != 2)
